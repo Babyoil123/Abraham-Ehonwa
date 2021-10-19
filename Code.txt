@@ -1,0 +1,187 @@
+
+import java.util.Scanner;
+
+public class Main
+{
+    static Scanner input=new Scanner(System.in);
+	public static void main(String[] args) {
+		
+		
+		menu();
+	}
+	
+	public static void menu()
+	{
+	    System.out.println("Please make a selection");
+	    System.out.println("Press 1 to print name 5 times");
+	    System.out.println("Press 2 to have a calculator");
+	    System.out.println("Press 3 to shut down the system");
+	    
+	    String choose =input.next();
+	    switch(choose)
+	    {
+	       case "1":
+	       {
+	           one();   
+	           break;
+	       }
+	       case "2":
+	       {
+	           calculator();     
+	           break;
+	       }
+	       case "3":
+	       {
+	            shut_down();    
+	            break;
+	       }
+	       default:
+	       {
+	           System.out.println("Wrong input please try again");
+	           System.out.println(" ");
+	            menu();
+    	       break;
+	       }
+	    }
+	    
+	}
+	public static void one()
+	{
+	    System.out.println("Please enter in your name");
+	    String name=input.next();
+	    System.out.println(" ");
+	    for(int i =1;i<=5;i++)
+	    {
+	        System.out.println(name);
+	    }
+	    System.out.println("Press 1 to enter name again");
+	    System.out.println("Press 2 to go back to menu");
+	    System.out.println("Press 3 to shut down system");
+	    String choose=input.next();
+	    switch(choose)
+	    {
+	            case"1":
+	            {
+	                one();
+	                break;
+	            }
+	            case"2":
+	            {
+	                menu();
+	                break;
+	            }
+	            case"3":
+	            {
+	                System.exit(1);
+	                break;
+	            }
+	            default:
+	            {
+	                System.out.println("Wrong input system shutting down....");
+	                System.exit(2);
+	            }
+	    }
+	}
+	
+	public static void calculator()
+	{
+	   System.out.println("***********");
+	   System.out.println("Calculator");
+	   System.out.println("***********");
+	   
+	   System.out.println("Please input your first number");
+	   int number1=input.nextInt();
+	   System.out.println("Please input a maths symbol");
+	   String symbol=input.next();
+	   System.out.println("Please input your second number");
+	   int number2=input.nextInt();
+	   
+	   int ans1=number1 - number2;
+	   int ans2=number2 - number1;
+	   
+	   if(symbol.equals("+"))
+	   {
+	           System.out.println(number1 +" + "+number2+" = "+number1+number2);
+	   }
+	   
+	   else if(symbol.equals("-"))
+	   {
+	       if(number1>number2)
+	       {
+	           System.out.println(number1 +" - "+number2+" = "+ ans1);
+	       }
+	       else{
+	           System.out.println(number2 +" - "+number1+" = "+ ans2);
+	       }
+	   }
+	   
+	   else if(symbol.equals("*"))
+	   {
+	       if(number1>number2)
+	       {
+	           System.out.println(number1 +" * "+number2+" = "+number1*number2);
+	       }
+	       else{
+	           System.out.println(number2 +" * "+number1+" = "+number2*number1);
+	       }
+	   }
+	   else if(symbol.equals("/"))
+	   {
+	       if(number1>number2)
+	       {
+	           System.out.println(number1 +" / "+number2+" = "+number1/number2);
+	       }
+	       else{
+	           System.out.println(number2+ " / "+number1+" = "+number2/number1);
+	       }
+	   }
+	   else if(symbol.equals("%"))
+	   {
+	       if(number1>number2)
+	       {
+	           System.out.println(number1+ " % "+number2+" = "+number1%number2);
+	       }
+	       else{
+	           System.out.println(number2+ " % "+number1+" = "+number2%number1);
+	       }
+	   }
+	   else{
+	       System.out.println("Wrong input");
+	       menu();
+	   }
+	   System.out.println("Press 1 to use the calculator again");
+	    System.out.println("Press 2 to go back to menu");
+	    System.out.println("Press 3 to shut down system");
+	    String choose=input.next();
+	    switch(choose)
+	    {
+	            case"1":
+	            {
+	                calculator();
+	                break;
+	            }
+	            case"2":
+	            {
+	                menu();
+	                break;
+	            }
+	            case"3":
+	            {
+	                System.exit(4);
+	                break;
+	            }
+	            default:
+	            {
+	                System.out.println("Wrong input system shutting down....");
+	                System.exit(5);
+	            }
+	    }
+	   
+	}
+	
+	public static void shut_down()
+	{
+	    System.out.println("System shutting down....");
+	    System.exit(3);
+	}
+}
